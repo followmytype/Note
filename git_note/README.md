@@ -50,8 +50,29 @@ git add -A // 同上
 git commit -m "title" // 只提交 title
 git commit -m "title" -m "detail message" // 提交 title 和 補充文字
 ```
-> `-m` 這個參數的意思就是`message`，訊息的意思。  
+> `-m` 這個參數的意思就是`message`，訊息的意思，常用在簡短的commit說明上。
 
-這樣我們的`git`流程就已經完成了
+另外其實常常在工作上，都會在某個任務告一段落時，才會進行`commit`，所以紀錄的內容就要詳細的講述這次的行為是什麼，而使用上述的 `-m` 就會很難撰寫，所以我們會直接這樣輸入：
+```
+git commit
+```
+而這時就會進入到 `Vim` 編輯器內，可以好好的撰寫紀錄訊息了  
+小提醒：
+1. 用一行空白行分隔標題與內容
+2. 限制標題最多只有 50 字元
+3. 標題開頭要大寫（for English）
+4. 標題不以句點結尾
+5. 以祈使句撰寫標題
+6. 內文每行最多 72 字
+7. 用內文解釋 what 以及 why vs. how
+> 延伸閱讀：[Git Commit Message建議寫法]  
+> vim 的介紹我會找時間紀錄
+
+這樣我們的`git`流程就已經完成了，這時補充一個指令：
+```
+git log
+```
+這個指令能查看這隻`git`的過往紀錄，是個很方便的指令
 
 [git add -A 和 git add . 的區別]:https://www.cnblogs.com/skura23/p/5859243.html    "git add"
+[Git Commit Message建議寫法]:https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html
