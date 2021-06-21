@@ -1,25 +1,60 @@
 # `jQuery`筆記
 ## 選取規則
-純`tag`
-```javascript
-$('tag')
-```
-用`class`
-```javascript
-$('.tag_class')
-```
-用`id`
-```javascript
-$('#tag_id')
-```
-用標籤內的屬性去做選取，譬如`<tag att=test></tag>`
-```javascript
-$('tag[att=test]')
-```
-用標籤的狀態來選取
-```javascript
-$('input[type=checkbox]:checked')
-```
+* 純`tag`
+    ```javascript
+    $('tag')
+    ```
+* tag底下的tag，以此類推
+    ```html
+    <tag1>
+        <tag2>
+            <tag3>
+            </tag3>
+        </tag2>
+    </tag1>
+    ```
+    ```javascript
+    $('tag1 tag2 tag3')
+    ```
+* 用`class`
+    ```javascript
+    $('.tag_class')
+    ```
+* `tag`帶`class`
+    ```html
+    <tag class='att1'></tag>
+    ```
+    ```javascript
+    $('tag.att1')
+    ```
+* 一個`tag`有多個`class`
+    ```html
+    <tag class="cla1 cla2 cla3">
+    ```
+    ```javascript
+    $('.cla1.cla2.cla3')
+    ```
+* 選複數`class`
+    ```html
+    <tag class="att1"></tag>
+    <tag class="att2"></tag>
+    <tag class="att3"></tag>
+    ```
+    ```javascript
+    $(".att1, .att2, .att3")
+    ```
+* 用`id`
+    ```javascript
+    $('#tag_id')
+    ```
+* 用標籤內的屬性去做選取，譬如`<tag att=test></tag>`
+    ```javascript
+    $('tag[att=test]')
+    ```
+* 用標籤的狀態來選取
+    ```javascript
+    $('input[type=checkbox]:checked')
+    ```
 
 ## `AJAX`
 ```javascript
