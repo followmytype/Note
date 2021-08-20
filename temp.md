@@ -13,3 +13,13 @@ var myDog = {
 };
 delete myDog.tails
 ```
+### 檢查屬性是否存在
+使用`hasOwnProperty`方法檢查屬性是否存在
+```javascript
+var myObj = {
+  one: "one one",
+  two: "two two"
+};
+myObj.hasOwnProperty("one");   // true
+myObj.hasOwnProperty("three"); // false
+```
