@@ -63,3 +63,39 @@ Math.floor(5.05);  // 5
 Math.floor(5);     // 5
 Math.floor(-5.05); // -6
 ```
+## `var vs let`
+`let`相對嚴謹，`var`能夠重複宣告不會出錯，`let`則不行
+```js
+var aaa = 'AAA';
+var aaa = 'aaa';
+console.log(aaa); // aaa
+
+let aaa = 'AAA';
+let aaa = 'aaa'; // error
+```
+`let`會限制在指定區塊
+```js
+for(var i = 0; i < 3; i++) {
+  console.log(i);
+}
+console.log(i);
+// 0, 1, 2, 3
+
+for(let i = 0; i < 3; i++) {
+  console.log(i);
+}
+console.log(i);
+// 0, 1, 2, i is undefined
+```
+## `const`
+`const`用來宣告一個不會改變的數
+```js
+const APPLE = 'apple';
+APPLE = 'banana'; // type error
+```
+但是當const用來宣吿陣列或是物件時，他只是不能再被重新賦予新的數值，但他裡面的元素可以被更換
+```js
+const ARR = [1, 2, 3];
+ARR = [4, 5, 6]; // type error
+ARR[0] = 123; // success
+```
