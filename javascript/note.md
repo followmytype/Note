@@ -30,6 +30,18 @@ var myObj = {
 myObj.hasOwnProperty("one");   // true
 myObj.hasOwnProperty("three"); // false
 ```
+### 凍結物件
+凍結物件，可以防止物件被做任何改變
+```js
+let obj = {
+  name:"FreeCodeCamp",
+  review:"Awesome"
+};
+Object.freeze(obj);
+obj.review = "bad"; // failed
+obj.newProp = "Test"; // failed
+console.log(obj); 
+```
 ## `swtich`
 用法：
 ```js
@@ -98,4 +110,62 @@ APPLE = 'banana'; // type error
 const ARR = [1, 2, 3];
 ARR = [4, 5, 6]; // type error
 ARR[0] = 123; // success
+```
+## 箭頭函數
+箭頭函數使用方法
+```js
+const hello = () {
+  return 'hello';
+}
+console.log(hello()); // hello
+// 簡單的回傳可以不用大括弧
+const hello = () => 'hello';
+console.log(hello()); // hello
+// 帶參數，可以多個，也能有預設值
+const hello = (greet, name = 'matt') => greet + ' ' + name;
+console.log(hello('morning')); // morning matt
+// rest操作符，可以帶不固定數量的參數，將args打包一個陣列
+const hasMany = (...args) => {
+  console.log("There are " + args.length + " arguments.");
+}
+hasMany(1, 2, 3); // There are 3 arguments.
+hasMany(1, 'str', [], {}); // There are 4 arguments.
+// spread操作符，跟rest都是...，但是結果完全不一樣，是將陣列拆解成不同個數值
+let numbers = [1, 2, 3, 4, 5];
+console.log(...numbers) // 1, 2, 3, 4, 5
+```
+## 解構賦值
+能夠用一行簡單寫法直接提取物件內指定的鍵值
+```js
+const student = {
+  name: 'matt',
+  age: 18, 
+  birthday: '2000-06-12'
+}
+const {name, age} = student;
+console.log(name); // matt
+console.log(age); // 18
+```
+解構出來的值也可以另外給新的名稱，在解構的鍵後用冒號命名新的名稱。以上述的`student`為例
+```js
+const {name: myName, age: myAge} = student;
+console.log(myName); // matt
+console.log(myAge); // 18
+```
+深層解構，一樣也能另外命名
+```js
+const user = {
+  name: 'matt',
+  age: 18,
+  family: {
+    dad: 'daddy',
+    mom: 'mommy'
+  }
+}
+const {family} = user;
+console.log(family); // {dad: 'daddy', mom: 'mommy'}
+const {family:{dad, mom}} = user;
+console.log(dad); // daddy
+const {family:{dad: myDad, mom: myMom}} = user;
+console.log(myMom); // mommy
 ```
