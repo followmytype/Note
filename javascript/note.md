@@ -8,6 +8,18 @@
     * `shift()`: 移除並得到陣列第一個元素
     * `unshift()`: 新增元素到陣列最前面
 ## `Object`
+### 物件內函式
+物件內可以宣告函式
+```js
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear); // 3
+```
 ### 刪除物件內部的值
 使用`delete`能刪除指定的屬性
 ```js
@@ -146,6 +158,15 @@ const {name, age} = student;
 console.log(name); // matt
 console.log(age); // 18
 ```
+解構也能直接在函數的參數中定義
+```js
+const sum = ({max, min}) => max + min;
+const numbers = {
+  max: 50,
+  min: 10
+};
+console.log(sum(numbers)); // 60
+```
 解構出來的值也可以另外給新的名稱，在解構的鍵後用冒號命名新的名稱。以上述的`student`為例
 ```js
 const {name: myName, age: myAge} = student;
@@ -168,4 +189,35 @@ const {family:{dad, mom}} = user;
 console.log(dad); // daddy
 const {family:{dad: myDad, mom: myMom}} = user;
 console.log(myMom); // mommy
+```
+陣列也能解構，但他會依照順序去賦值，要跳過的話就留空
+```js
+const [a, b, , , c] = [1, 2, 3, 4, 5];
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 5
+// 交換數值
+let a = 6, b = 9;
+[a, b] = [b, a];
+console.log(a); // 9
+console.log(b); // 6
+```
+解構陣列能使用`rest`操作，但是他只能用在接收陣列剩餘的值，也就是說他只能放在最後面
+```js
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const [a, b, ...arr] = source; // arr = [3, 4, 5, 6, 7, 8, 9, 10]
+```
+## 結構賦值
+```js
+const createPerson = (name, age, sex) => ({name, age, sex});
+const matt = createPerson('matt', 18, 'male'); // {name: 'matt', age: 18, sex: 'male'}
+```
+## 字串
+使用反引號去組織字串，可以在引號內直接呼叫變數名稱，也能輕鬆換行，不需要加上`\n`
+```js
+const name = 'matt';
+console.log(`hello ${name}, 
+what's up?`);
+// hello matt, 
+// what's up?
 ```
