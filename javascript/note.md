@@ -221,3 +221,25 @@ what's up?`);
 // hello matt, 
 // what's up?
 ```
+## `Class`
+就像其他語言的類別，`constructor`、`getter`、`setter`
+```js
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+
+  get myName() {
+    return this.name;
+  }
+
+  set myName(newName) {
+    this.name = newName;
+  }
+}
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // carrot
+carrot.myName = 'aaaa';
+console.log(carrot.myName); // aaaa
+```
