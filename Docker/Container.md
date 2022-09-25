@@ -39,9 +39,6 @@ CONTAINER_ID IMAGE   COMMAND  CREATED STATUS PORTS     NAME
 2. `-l`: 選出最近創建的容器
 3. `-n`: 選出最近創建的n個容器
 4. `-q`: 只羅列容器ID
-```
-docker search --limit 5 redis 只列出5個redis鏡像
-```
 ---
 ### 退出容器
 退出容器有兩種辦法，一個會在退出的時候停止容器，另一個則是退出時容器保持啟動狀態。

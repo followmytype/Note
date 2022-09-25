@@ -27,7 +27,7 @@ NAME    DESCRIPTION STARS  OFFICIAL      AUTOMATED
 
 `--limit`: 只列出指定數量（預設25個）
 ```
-docker search --limit 5 redis 只列出5個redis鏡像
+docker search --limit=5 redis 只列出5個redis鏡像
 ```
 ---
 ### 下載鏡像

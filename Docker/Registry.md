@@ -33,7 +33,7 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 
 這裡我們來製作一份自己的鏡像。這裡用`ubuntu`來做範例
 ```
-> docker run -itd --name my-test-ubuntu ubuntu
+> docker run -itd --name=my-test-ubuntu ubuntu
 ```
 創建一個在背後運行不中斷的`ubuntu`容器，進入容器後做一些環境上的配置改變。
 ```
