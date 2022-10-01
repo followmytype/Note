@@ -8,7 +8,7 @@ docker run -d -p=3306:3306 --privileged=true \
 -v=<PATH>/mysql/data:/var/lib/mysql \
 -v=<PATH>/mysql/conf:/etc/mysql/conf.d \
 -e=MYSQL_ROOT_PASSWORD=<YOUR_SECRET_PASSWORD> \
---name=<YOURT_CONTAINER_NAME> \
+--name=<YOUR_CONTAINER_NAME> \
 mysql \
 mysqld --default-authentication-plugin=mysql_native_password
 ```
@@ -113,3 +113,5 @@ collation_server = utf8_general_ci
 |character_set_server|服务器安装时指定的默认编码格式,这个变量建议由系统自己管理,不要认为定义.|
 |character_set_system|数据库系统使用的编码格式,这个值一直是utf8,不需要设置,它是存储系统元数据的编码格式.|
 |character_set_dir|这个变量是字符集安装的目录.|
+
+https://juejin.cn/post/6966912301249069086
